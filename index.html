@@ -1,866 +1,201 @@
-<!DOCTYPE html>
-
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>15Packets.com</title>
-    <!-- Required meta tags -->
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./15Packets.com_files/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <style type="text/css">
-
-@font-face {
-  font-family: Evogria;
-  src: url(Evogria.woff);
-}
-
-    /* =============================================================================
-   HTML5 CSS Reset Minified - Eric Meyer
-   ========================================================================== */
-
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-nav ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
-mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
-del{text-decoration:line-through}
-abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
-table{border-collapse:collapse;border-spacing:0}
-hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
-input,select{vertical-align:middle}
-li{list-style:none}
-
-
-/* =============================================================================
-   My CSS
-   ========================================================================== */
-
-/* ---- base ---- */
-
-html,body{ 
-	width:100%;
-	height:100%;
-    background:#000;
-    margin: 0;
-    overflow: hidden;
-}
-
-html{
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body{
-  font:normal 75% Arial, Helvetica, sans-serif;
-}
-
-canvas{
-    vertical-align: bottom;
-    display: block;
-}
-
-
-/* ---- stats.js ---- */
-
-.count-particles{
-  background: transparent;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 80px;
-  color: #13E8E9;
-  font-size: .8em;
-  text-align: left;
-  text-indent: 4px;
-  line-height: 14px;
-  padding-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-}
-
-.js-count-particles{
-  font-size: 1.1em;
-}
-
-#stats,
-.count-particles{
-  -webkit-user-select: none;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-#stats{
-  border-radius: 3px 3px 0 0;
-  overflow: hidden;
-}
-
-.count-particles{
-  border-radius: 0 0 3px 3px;
-}
-
-
-/* ---- particles.js container ---- */
-
-#particles-js{
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  background-image: url('');
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  z-index: 9;
-  position: absolute;
-  opacity: .75;
-}
-
-@import "susy";
-@import "compass/reset";
-
-.stars, .twinkling, .clouds {
-	position:absolute;
-	display:block;
-	top:0; bottom:0;
-	left:0; right:0;
-	width:100%; height:100%;
-}
-
-.stars {
-	z-index: 0;
-	background: #000 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
-}
-
-.twinkling{
-	z-index: 1;
-	background:transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
-	animation: move-twink-back 200s linear infinite;
-}
-
-.clouds{
-	z-index: 2;
-    background:transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat top center;
-	animation: move-clouds-back 200s linear infinite;
-}
-
-@keyframes move-twink-back {
-	from {background-position:0 0;}
-	to {background-position:-10000px 5000px;}
-}
-
-@keyframes move-clouds-back {
-	from {background-position:0 0;}
-	to {background-position:10000px 0;}
-}
-#titlecontainer {
-    width: 100%;
-    height: 0%;
-    position: absolute;
-    z-index: 2;
-    text-align: center;
-    background-color: red;
-}
-#titlecontainer h1 {
-    color: #fff;
-    font-size: 70px;
-    font-family: Evogria;
-    font-variant: small-caps;
-    margin-top: 15%;
-    height: 5%;
-    opacity: 0.35;
-}
-#title {
-    color: #fff;
-    position: absolute;
-    z-index: 1;
-    width: 20%;
-    text-align: center;
-    font-size: 50px;
-    font-family: Evogria;
-    font-variant: small-caps;
-    top: 100%;
-    display: inline-block;
-    margin: 0 auto;
-    left: 40%;
-    background-color: red;
-    height: 10%;
-}
-#title h1 {
-    color: #fff;
-    font-size: 50px;
-    font-family: Evogria;
-    font-variant: small-caps;
-    z-index: 2;
-    opacity: 1;
-    margin-top: 79%;
-    background-color: red;
-}
-
-.twitter {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    z-index: 9;
-    left: 40.5%;
-    top: 43%;
-    animation: opentwo 2s;
-}
-.twitter img {
-    height: 60px;
-    width: 60px;
-    filter: drop-shadow(0px 0px 2px #000);
-    z-index: 1;
-    position: absolute;
-    z-index: 9;
-    transition: transform .5s ease;
-}
-.twitter img:hover {
-    transform: scale(1.3);
-}
-
-.snapchat {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 44.5%;
-  top: 44%;
-  animation: open 2.5s;
-}
-.snapchat img {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  z-index: 9;
-  left: 5%;
-  transition: transform .5s ease;
-}
-.snapchat img:hover {
-  transform: scale(1.3);
-}
-
-.github {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 48.5%;
-  transition: transform .5s ease;
-  top: 44%;
-  animation: open 3s;
-}
-.github img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-@keyframes open {
-  from {top: 400%;}
-  to {top: 44%;}
-}
-@keyframes opentwo {
-  from {top: 400%;}
-  to {top: 43%;}
-}
-.github img:hover {
-  transform: scale(1.3);
-}
-
-.instagram {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 52.5%;
-  transition: transform .5s ease;
-  top: 44%;
-  animation: open 3.5s;
-}
-.instagram img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.instagram img:hover {
-  transform: scale(1.3);
-}
-
-.facebook {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 57%;
-  transition: transform .5s ease;
-  top: 44%;
-  animation: open 4s;
-}
-.facebook img {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.facebook img:hover {
-  transform: scale(1.3);
-}
-
-/* RESPONSIVE CSS */
-
-/* iPhone 6/7/8/6s Portrait */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) { 
-
-    #review1 {
-      animation: none;
-      top: 50%;
-    }
-    #title {
-      width: 100%;
-      left: 0%;
-      top: 5%;
-      margin-top: -60%;
-    }
-    .twitter {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    z-index: 9;
-    left: 40.5%;
-    top: 36%;
-    animation: opentwo 2s;
-}
-.twitter img {
-    height: 60px;
-    width: 60px;
-    filter: drop-shadow(0px 0px 2px #000);
-    z-index: 1;
-    position: absolute;
-    z-index: 9;
-    transition: transform .5s ease;
-}
-.twitter img:hover {
-    transform: scale(1.3);
-}
-
-.snapchat {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  top: 44%;
-  animation: open 2.5s;
-}
-.snapchat img {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  z-index: 9;
-  left: 5%;
-  transition: transform .5s ease;
-}
-.snapchat img:hover {
-  transform: scale(1.3);
-}
-
-.github {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  transition: transform .5s ease;
-  top: 52%;
-  animation: opengit 3s;
-}
-.github img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.github img:hover {
-  transform: scale(1.3);
-}
-
-.instagram {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  transition: transform .5s ease;
-  top: 60%;
-  animation: openig 3.5s;
-}
-.instagram img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.instagram img:hover {
-  transform: scale(1.3);
-}
-.facebook img:hover {
-  transform: scale(1.3);
-}
-@keyframes openfb {
-  from {top: 400%;}
-  to {top: 68%;}
-}
-@keyframes openig {
-  from {top: 400%;}
-  to {top: 60%;}
-}
-@keyframes opengit {
-  from {top: 400%;}
-  to {top: 52%;}
-}
-@keyframes opentwo {
-  from {top: 400%;}
-  to {top: 36%;}
-}
-  }
-
-    /* iPhone 6+/7+/8+ Portrait */
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-    #title {
-      width: 100%;
-      left: 0%;
-      top: 5%;
-      margin-top: -60%;
-    }
-    #review1 {
-      animation: none;
-      top: 50%;
-    }
-
-}
-
-/* iPhone 5 Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    #review1 {
-      animation: none;
-      top: 50%;
-    }
-    #title {
-      width: 100%;
-      left: 0%;
-      top: 5%;
-      margin-top: -60%;
-    }
-    .twitter {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    z-index: 9;
-    left: 40.5%;
-    top: 36%;
-    animation: opentwo 2s;
-}
-.twitter img {
-    height: 60px;
-    width: 60px;
-    filter: drop-shadow(0px 0px 2px #000);
-    z-index: 1;
-    position: absolute;
-    z-index: 9;
-    transition: transform .5s ease;
-}
-.twitter img:hover {
-    transform: scale(1.3);
-}
-
-.snapchat {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  top: 44%;
-  animation: open 2.5s;
-}
-.snapchat img {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  z-index: 9;
-  left: 5%;
-  transition: transform .5s ease;
-}
-.snapchat img:hover {
-  transform: scale(1.3);
-}
-
-.github {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  transition: transform .5s ease;
-  top: 52%;
-  animation: opengit 3s;
-}
-.github img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.github img:hover {
-  transform: scale(1.3);
-}
-
-.instagram {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 40.5%;
-  transition: transform .5s ease;
-  top: 60%;
-  animation: openig 3.5s;
-}
-.instagram img {
-  height: 45px;
-  width: 45px;
-  position: absolute;
-  left: 14%;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.instagram img:hover {
-  transform: scale(1.3);
-}
-
-.facebook {
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  z-index: 9;
-  left: 42%;
-  transition: transform .5s ease;
-  top: 68%;
-  animation: openfb 4s;
-}
-.facebook img {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  z-index: 9;
-  transition: transform .5s ease;
-}
-.facebook img:hover {
-  transform: scale(1.3);
-}
-@keyframes openfb {
-  from {top: 400%;}
-  to {top: 68%;}
-}
-@keyframes openig {
-  from {top: 400%;}
-  to {top: 60%;}
-}
-@keyframes opengit {
-  from {top: 400%;}
-  to {top: 52%;}
-}
-@keyframes opentwo {
-  from {top: 400%;}
-  to {top: 36%;}
-}
-}
-
-/* Updated CSS as of 9/21/2020 */
-
-#reviews-container {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  top: 100%;
-}
-
-#title h2 {
-  margin-top: 15%;
-  font-size: 70%;
-}
-
-/* -- Non retina screens (laptops) -- */
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
-
-    #title h2 {
-      margin-top: 20%;
-    }
-    #facebook1 img {
-      margin-top: 1.5%;
-    }
-    #title {
-      margin-top: .2%;
-    }
-}
-
-/* --- iPhone X --- */
-
-/* -- iPhone 5 -- */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
-    #title h1 {
-      font-size: 100%;
-    }
-    #review1 {
-      top: 30%;
-    }
-}
-
-#review1 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 60%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-
-#review2 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 63%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-
-#review3 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 68%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-
-#facebook1 {
-  position: absolute;
-  z-index: 9;
-  top: 47%;
-  width: 100%;
-  text-align: center;
-}
-#facebook1 img {
-  width: 3%;
-  height: 3%;
-  transition: transform .5s ease;
-}
-#facebook1 img:hover {
-  transform: scale(1.3);
-}
-
-/* iphone x */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-  #facebook1 {
-    width: 100%;
-    top: 25%;
-  }
-#facebook1 img {
-  width: 15%;
-  height: 15%;
-}
-
-#review1 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 55%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-
-#review2 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 63%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-
-#review3 {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  position: absolute;
-  z-index: 1;
-  color: #666;
-  top: 69%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-}
-}
-
-/* ----------- iPhone 6+, 7+ and 8+ ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-#facebook1 {
-  width: 100%;
-  top: 30%;
-}
-}
-
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-/* Portrait */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) { 
-    #facebook1 {
-  width: 100%;
-  top: 30%;
-}
-#facebook1 img {
-  width: 15%;
-  height: 15%;
-} 
-#review1 {
-  top: 45%;
-}
-#review2 {
-  top: 55%;
-}
-#review3 {
-  top: 63%;
-}
-}
-
-/* End CSS as of 9/21/2020 */
-
-    </style>
-  </head>
-  <body data-new-gr-c-s-check-loaded="14.1071.0" data-gr-ext-installed="">
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./15Packets.com_files/jquery-3.4.1.slim.min.js.download" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="./15Packets.com_files/popper.min.js.download" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="./15Packets.com_files/bootstrap.min.js.download" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <!-- count particles -->
-<div class="count-particles">
-    <span class="js-count-particles"></span> 
-  </div>
-  
-  <!-- particles.js container -->
-  <div id="particles-js"><canvas class="particles-js-canvas-el" width="1904" height="858" style="width: 100%; height: 100%;"></canvas></div>
-  
-  <!-- scripts -->
-  <script src="./15Packets.com_files/particles.js.download"></script>
-  <script src="./15Packets.com_files/app.js.download"></script>
-  
-
-
-  <script>
-    var count_particles, stats, update;
-    stats = new Stats;
-    stats.setMode(0);
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '0px';
-    stats.domElement.style.top = '0px';
-    document.body.appendChild(stats.domElement);
-    count_particles = document.querySelector('.js-count-particles');
-    update = function() {
-      stats.begin();
-      stats.end();
-      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-      }
-      requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-  </script>
-
-  <div class="stars"></div>
-  <div class="twinkling"></div>
-  <div class="clouds"></div>
-<div id="titlecontainer">
-    
-  <div id="title">
-      <h1>15packets.com</h1>
-      
-  </div>
-</div>
-
-<div id="time">
-
-</div>
-
-
-
-
-
-
-
-
-
-
-  
-</body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="MSSmartTagsPreventParsing" content="TRUE">
+  <title>15Packets.com</title>
+  <meta name="author" content="15Packets">
+</head>
+<body background="./15Packets.com_files/computah2.gif">
+  <table width="100%">
+    <tr>
+      <td>
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <table border="2" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF">
+                  <tbody>
+                    <tr bgcolor="#FFCCFF" align="center">
+                      <td colspan="2" width="192"><font size="2" face="arial, helvetica"><b>Lovely Gifs</i></font></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/this_computer.gif" width="96" height="72" alt="this computer"></td>
+                      <td><img src="./15Packets.com_files/computer_bloat.gif" width="96" height="72" alt="computer bloat"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/head_crash.gif" width="96" height="72" alt="head crash"></td>
+                      <td><img src="./15Packets.com_files/afk.gif" width="96" height="72" alt="afk"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/computer_kill.gif" width="96" height="72" alt="computer kill"></td>
+                      <td><img src="./15Packets.com_files/C_terminal.gif" width="96" height="72" alt="C_terminal"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/computer_floppy.gif" width="96" height="72" alt="computer_floppy"></td>
+                      <td><img src="./15Packets.com_files/computer_hit.gif" width="96" height="72" alt="computer_hit"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/computer_mouse.gif" width="96" height="72" alt="computer_mouse"></td>
+                      <td><img src="./15Packets.com_files/death_by_pc.gif" width="96" height="72" alt="death_by_pc"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="./15Packets.com_files/email.gif" width="96" height="72" alt="email"></td>
+                      <td><img src="./15Packets.com_files/email_me.gif" width="96" height="72" alt="email_me"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td>
+        <table>
+          <tbody>
+            <tr valign="top">
+              <td colspan="2">
+                <center>
+                  <table border="4" bgcolor="#FFFFFF">
+                    <tbody>
+                      <tr align="center" bgcolor="#FF0000">
+                        <td><font face="Arial, Helvetica" size="+3" color="#FFFFFF"><b>15Packets.com<br>
+                        <br>
+                        How Tiny Bytes Can Pack a Punch and Make Your Internet Dreams Come True!&nbsp;</b></font></td>
+                      </tr>
+                      <tr align="center" bgcolor="#FFFFCC">
+                        <td><font size="+1" face="Arial, Helvetica"><br>
+                        (Or cripple your modem!)<br>
+                        <br></font></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </center>
+              </td>
+            </tr>
+            <tr valign="top">
+              <td>
+                &nbsp;<br>
+                <table border="4" cellpadding="8" bgcolor="#FFFFFF">
+                  <tbody>
+                    <tr>
+                      <td><font size="5" face="arial, helvetica">WELCOME TO 15PACKETS.COM!</font> <font size="4" face="arial, helvetica">This ultimate resource for all things related to 15 packets! Here, we explore the power and potential of these small data packets, and how they can be used to accomplish amazing things. While some may associate 15 packets with DDoS attacks and other nefarious activities, that's not what we're about here at 15packets.com. Instead, we're all about exploring the limits of what can be accomplished with this seemingly small amount of data. We'll be sharing tips and tricks for using 15 packets to optimize your internet experience, from improving network speed to optimizing website performance. We'll also delve into the technical aspects of packets and networking, for those who are interested in a deeper understanding of the technology behind the internet. So whether you're a tech enthusiast, a network administrator, or just curious about the inner workings of the internet, 15packets.com is the place to be. Join us on this journey of exploration and discovery, and let's see where 15 packets can take us.</font></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table align="left">
+                          <tbody>
+                            <tr>
+                              <td><img src="./15Packets.com_files/computer_packet.gif" alt="3d volume of integration"></td>
+                            </tr>
+                          </tbody>
+                        </table><font size="5" face="arial, helvetica">What Is 15Packets?:</font> <font size="3" face="arial, helvetica">When we talk about "packets" in the context of computer networking, we're referring to small units of data that are sent over the internet. These packets contain information that is needed to transmit data from one device to another, such as the source and destination IP addresses, the payload data, and error-checking information.<br>
+                        &nbsp;<br>
+                        So what makes 15 packets so special? Well, honestly, not much. 15 packets is simply a specific number of packets that can be sent over the internet, and it's often used as a humorous reference to the world of networking.<br>
+                        &nbsp;<br>
+                        In fact, 15 packets is often associated with DDoS attacks, which are designed to overwhelm a website or server with a flood of traffic. While we do not condone or support such activities, we do find the humor in the idea of causing chaos with such a small amount of data.<br>
+                        &nbsp;<br>
+                        But 15 packets can be used for good as well. For example, some internet service providers use 15 packets as a default ping size when testing network connectivity. And some network administrators may use 15 packets as a baseline for testing network speed and performance.<br>
+                        &nbsp;<br>
+                        So while 15 packets may not be particularly noteworthy on their own, they do have a certain charm and quirkiness that has made them a memorable part of internet culture.<br>
+                        &nbsp;<br>
+                        <br>
+                        <font size="5" face="arial, helvetica">The origins of 15Packets:</font> Believe it or not, the origin of 15 packets can be traced back to a joke among friends. According to legend (or at least, according to our founder), the idea of 15 packets was born when one of his friends made a comment about sending "15 packets" to someone over the internet.<br>
+                        &nbsp;<br>
+                        At the time, this was just a silly joke among friends. But as our founder continued to work in the world of networking and technology, the idea of 15 packets stuck with him. He began to see the potential for this seemingly insignificant amount of data, and eventually decided to create a website dedicated to exploring the possibilities of 15 packets.<br>
+                        &nbsp;<br>
+                        And so, 15packets.com was born. While it may have started as a joke, our website has grown into a valuable resource for anyone interested in the world of networking and technology.<br>
+                        &nbsp;<br>
+                        <br>
+                        <font size="5" face="arial, helvetica">The Power of 15 Packets:</font> So what can you do with just 15 packets of data? As it turns out, quite a bit.<br>
+                        &nbsp;<br>
+                        For starters, you can use 15 packets to test network connectivity and performance. By sending a small amount of data, you can quickly determine whether a device or network is responding and how fast it's responding.<br>
+                        &nbsp;<br>
+                        You can also use 15 packets to optimize your internet experience. For example, some internet service providers may allow you to adjust the packet size in your router settings, which can improve network speed and reduce latency.<br>
+                        &nbsp;<br>
+                        And while we do not endorse or condone any illegal activities, it is worth noting that 15 packets can be used in DDoS attacks. However, we strongly advise against engaging in any such activities, as they are not only illegal but also unethical and harmful to innocent parties.<br>
+                        &nbsp;<br>
+                        To end it here, 15 packets may seem like a small amount of data, but they have the power to accomplish a surprising amount. Whether you're a networking enthusiast, a tech professional, or just a curious internet user, we invite you to join us in exploring the potential of these quirky little packets.</font>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>&nbsp;<br>
+                <center>
+                  <table border="1" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                    <tbody>
+                      <tr>
+                        <td><img src="./15Packets.com_files/eye_ball.gif" width="96" height="72" alt="dynamic 3d graph of flapping wings"></td>
+                        <td><img src="./15Packets.com_files/idek_anymore.gif" width="96" height="72" alt="3d graph of parallel planes"></td>
+                        <td><img src="./15Packets.com_files/internet_connect.gif" width="96" height="72" alt="dynamic 3d graph of surface eating sphere"></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./15Packets.com_files/linux_moment.gif" width="96" height="72" alt="3d graph of flames"></td>
+                        <td><img src="./15Packets.com_files/melted_pc.gif" width="96" height="72" alt="dynamic 3d graph of tornado"></td>
+                        <td><img src="./15Packets.com_files/mouse_on_the_run.gif" width="96" height="72" alt="3d graph of catenoid"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </center>&nbsp;<br>
+                <center>
+                  <table border="4" bgcolor="#FFFFFF">
+                    <tbody>
+                      <tr align="center" bgcolor="#CCCCFF">
+                        <td><font size="2" face="arial, helvetica">&nbsp;Copyright &#169; 2023 by 15packets.com. All rights reserved.&nbsp;</font></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </center>
+              </td>
+              <td>
+                &nbsp;<br>
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table border="1" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                          <tbody>
+                            <tr align="center" bgcolor="#FFFFCC">
+                              <td colspan="2" width="192"><font size="2" face="arial, helvetica"><b>Lovely Gifs</font></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/nuclear_warhead.gif" width="96" height="72" alt="dynamic 2d graph of swirl"></td>
+                              <td><img src="./15Packets.com_files/pc_munch.gif" width="96" height="72" alt="dynamic 2d graph of equipotential surface"></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/pc_punch.gif" width="96" height="72" alt="3d graph of volume of integration"></td>
+                              <td><img src="./15Packets.com_files/pc_trash.gif" width="96" height="72" alt="cool dynamic 3d graph"></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/pc_vs_apple.gif" width="96" height="72" alt="dynamic 3d graph of ethane molecule"></td>
+                              <td><img src="./15Packets.com_files/santa_browsing.gif" width="96" height="72" alt="3d graph of goblets"></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/spinning_cd.gif" width="96" height="72" alt="dynamic 3d sphere"></td>
+                              <td><img src="./15Packets.com_files/spinning_earth.gif" width="96" height="72" alt="dynamic 3d hourglass"></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/spinning_skull.gif" width="96" height="72" alt="3d double helix"></td>
+                              <td><img src="./15Packets.com_files/surfin_the_web.gif" width="96" height="72" alt="dynamic pulsing 3d graph"></td>
+                            </tr>
+                            <tr>
+                              <td><img src="./15Packets.com_files/win_95_the_best_os.gif" width="96" height="72" alt="3d donut"></td>
+                              <td><img src="./15Packets.com_files/your_pc_is_on_fire.gif" width="96" height="72" alt="pierced 3d octahedron"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
